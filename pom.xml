@@ -14,7 +14,7 @@
 	<name>ipm-appjobs</name>
 	<description>IPM Application Jobs</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

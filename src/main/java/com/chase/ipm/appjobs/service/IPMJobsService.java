@@ -1,5 +1,6 @@
 package com.chase.ipm.appjobs.service;
 
+import com.chase.ipm.appjobs.dto.IPMJobDetailsDTO;
 import com.chase.ipm.appjobs.entity.IPMJobDetails;
 import java.util.List;
 
@@ -16,5 +17,15 @@ public class IPMJobsService {
     public List<IPMJobDetails> getJobDetailsByName(String name) {
 
         return ipmJobsRepository.findByName(name);
+    }
+
+    public void createIPMJob(IPMJobDetailsDTO ipmJobDetailsDTO) {
+
+        ipmJobsRepository.save(convertDTOtoEntity(ipmJobDetailsDTO));
+    }
+
+    private IPMJobDetails convertDTOtoEntity(IPMJobDetailsDTO ipmJobDetailsDTO) {
+        return IPMJobDetails.builder().name(ipmJobDetailsDTO.getName())
+                .adContacts(ipmJobDetailsDTO.getAdContacts()).parentFolderName(ipmJobDetailsDTO.getParentFolderName()).build();
     }
 }

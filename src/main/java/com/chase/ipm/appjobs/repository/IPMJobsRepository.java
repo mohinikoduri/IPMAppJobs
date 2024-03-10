@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface IPMJobsRepository extends CrudRepository<IPMJobDetails, Integer> {
+
     List<IPMJobDetails> findByName(String name);
 }
